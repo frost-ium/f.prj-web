@@ -1,6 +1,6 @@
 # 📦 f.prj-web
 
-Web: https://frost-ium.github.io/batweb/
+Web: (https://frost-ium.github.io/f.prj-web/)
 
 
 ## 🌐 Sosyal Platformlar:
