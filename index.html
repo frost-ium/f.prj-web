@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>f-prj - Ana Sayfa</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/013/757/824/non_2x/abstract-square-logo-illustration-in-trendy-and-minimal-style-png.png" type="image/png" sizes="32x32">
+</head>
+<body>
+    <canvas id="webgl-canvas"></canvas>
+    <script id="js-vertex-shader" type="x-shader/x-vertex">
+        attribute vec3 position;
+
+        void main()	{
+          gl_Position = vec4(position, 1.0);
+        }
+    </script>
+    <script id="js-fragment-shader" type="x-shader/x-fragment">
+        precision highp float;
+        uniform vec2 resolution;
+        uniform float time;
+        uniform float xScale;
+        uniform float yScale;
+        uniform float distortion;
+
+        void main() {
+          vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
+          
+          float d = length(p) * distortion;
+          
+          float rx = p.x * (1.0 + d);
+          float gx = p.x;
+          float bx = p.x * (1.0 - d);
+
+          float r = 0.05 / abs(p.y + sin((rx + time) * xScale) * yScale);
+          float g = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
+          float b = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
+          
+          gl_FragColor = vec4(r, g, b, 1.0);
+        }
+    </script>
+    <div class="background">
+        <div class="gradient-bg"></div>
+    </div>
+    <header id="navbar">
+        <div class="logo-container">
+            <a href="index.html" class="logo">f-prj</a>
+            <div class="logo-menu">
+                <a href="platinum.html">Platinum Project</a>
+            </div>
+        </div>
+        <nav>
+           <a href="kesfet.html">Projeler</a>
+           <a href="hakkimda.html">Hakkımda</a>
+        </nav>
+        <a href="oner.html" class="suggest-btn">Öner</a>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>f//></h1>
+            <p>Many open source project by <span class="frostium">frostium</span></p>
+            <div class="scroll-down">
+                <i data-lucide="chevron-down"></i>
+            </div>
+        </section>
+
+        <section id="content" class="content">
+
+            <h2 id=>f-prj Nedir?</h2>
+
+            <div class="features-text">f-prj, geleceğin teknolojilerini şekillendirme vizyonuyla ortaya çıktı. Amacımız, kullanıcı dostu ve yenilikçi çözümler sunarak dijital dünyayı daha erişilebilir kılmak.
+
+                Projelerimizde en son teknolojileri kullanarak, kullanıcılarımıza en iyi deneyimi sunmayı hedefliyoruz. Sürekli öğrenme ve gelişme odaklı yaklaşımımızla, her gün daha iyiye ulaşmak için çalışıyoruz.
+            </div>
+
+
+
+
+
+            <section class="intellij-promo">
+                <h2 style="margin-bottom: 3rem;">Neden F-Project</h2>
+                
+                <div class="intellij-grid mb-16">
+                    <div class="intellij-feature">
+                        <i data-lucide="zap" class="w-12 h-12 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">En İyi Kullanıcı Deneyimi.</h3>
+                        <p>f-prj kullanıcı dostu, basit ve işe yarar ürünler çıkartır. Bu sayede sizin kullanım deneyiminizi iyileştirir..</p>
+                    </div>
+                    <div class="intellij-feature">
+                        <i data-lucide="code" class="w-12 h-12 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Açık Kaynak</h3>
+                        <p>f-prj açık kaynak ürünler üreterek yazılım kütüphanesine katkı sağlar. Herhangi birisi kodu alıp özelleştirebilir veya projeye katkıda bulunabilir.</p>
+                    </div>
+                    <div class="intellij-feature">
+                        <i data-lucide="box" class="w-12 h-12 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Her Şey Elinizin Altında</h3>
+                        <p>Üretilen programlarda herşey içinde gelmekte olup kullanıcıyı uğraştırmaz. Eksik varsa uygulama içinden indirebilirsiniz.</p>
+                    </div>
+                    <div class="intellij-feature">
+                        <i data-lucide="arrow-up-right" class="w-12 h-12 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Kurumsal Geliştirme İş Akışlarını Güçlendiriyoruz</h3>
+                        <p>Tasarım ve geliştirmeden test etmeye ve dağıtıma kadar her aşamada kuruluşların ihtiyaçlarını karşılıyoruz.</p>
+                    </div>
+                </div>
+                
+                <div class="heroo">
+                    <div class=" scroll-downn ">
+                        <i data-lucide="chevron-down"></i>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 15rem; margin-bottom: 3rem;" id="sstt">Tecrübeler</h2>
+                
+                <div class="intellij-tool-grid mb-12">
+                    <div class="intellij-tool">
+                        <i data-lucide="cpu" class="w-6 h-6 mb-2"></i>
+                        <span>Akıllı Editör</span>
+                    </div>
+                    <div class="intellij-tool">
+                        <i data-lucide="play" class="w-6 h-6 mb-2"></i>
+                        <span>Çalıştır</span>
+                    </div>
+                    <div class="intellij-tool">
+                        <i data-lucide="cpu" class="w-6 h-6 mb-2"></i>
+                        <span>AI Asistan</span>
+                        <span class="intellij-badge">ULTIMATE</span>
+                    </div>
+                    <div class="intellij-tool">
+                        <i data-lucide="globe" class="w-6 h-6 mb-2"></i>
+                        <span>Web Dev</span>
+                        <span class="intellij-badge">ULTIMATE</span>
+                    </div>
+                    <div class="intellij-tool">
+                        <i data-lucide="activity" class="w-6 h-6 mb-2"></i>
+                        <span>Profiler</span>
+                        <span class="intellij-badge">ULTIMATE</span>
+                    </div>
+                    <div class="intellij-tool">
+                        <i data-lucide="zap" class="w-6 h-6 mb-2"></i>
+                        <span>Jakarta EE</span>
+                        <span class="intellij-badge">ULTIMATE</span>
+                    </div>
+                    <div class="intellij-tool">
+                        <i data-lucide="database" class="w-6 h-6 mb-2"></i>
+                        <span>Veritabanı</span>
+                        <span class="intellij-badge">ULTIMATE</span>
+                    </div>
+                    <div class="intellij-tool">
+                        <i data-lucide="cloud" class="w-6 h-6 mb-2"></i>
+                        <span>Bulut</span>
+                        <span class="intellij-badge">ULTIMATE</span>
+                    </div>
+                    <div class="intellij-tool">
+                        <i data-lucide="monitor" class="w-6 h-6 mb-2"></i>
+                        <span>Uzaktan</span>
+                        <span class="intellij-badge">ULTIMATE</span>
+                    </div>
+                </div>
+    
+                <div class="text-center mb-12">
+                    <a href="https://github.com/frost-ium" class="intellij-btn">GitHub</a>
+                </div>
+    
+                <div class="text-center">
+                </div>
+            </section>
+
+            <h2 id="st">Uygulama Özellikleri</h2>
+
+            <div id="dw" class="features-text" style="padding-right: 1px;">
+
+               <strong style="text-align: center;"># bat.bat {v11}</strong>
+               <br>
+                Windows bakım ve onarım kodlarıyla işletim sistemi tamiri.</p>
+                Gereksiz dosyaları silme.</p>
+                Bilgisayarınızdaki güncelleme bekleyen uygulamaları güncelleme. (Winget)</p>
+                Windows bilgisayarınızı lisanslama.</p>
+                Windows cihazınızdaki gereksiz şişkinlik yapan hizmet ve uygulamaları silme.</p>
+                Windows cihazınızın Defender Güvenlik Duvarını ayarlama.</p>
+                Format sonrası otomatik sürücü, uygulama ve diğer ayarlamaları yapma. (Kişiselleştirilebilir)</p>
+                Minecraft sunucu dosyalarını otomatik bulup indirme. (Beta)</p>
+     
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    <i data-lucide="zap"></i>
+                    <h3>Hızlı</h3>
+                    <p>Bilgisayarınızın performansını arttırır.</p>
+                </div>
+
+                <div class="feature">
+                    <i data-lucide="shield"></i>
+                    <h3>Onarım</h3>
+                    <p>Bozulan işletim sistemini düzeltir.</p>
+                </div>
+
+                <div class="feature">
+                    <i data-lucide="monitor"></i>
+                    <h3>Masaüstü</h3>
+                    <p>Windows için optimize edilmiş</p>
+                </div>
+
+            </div>
+
+        </div>
+
+            <h2 style="margin-top: 5rem;">İndirme Seçenekleri</h2>
+
+            <div class="download-options">
+                <a href="https://github.com/frostium7/bat.bat/releases/download/bat.bat/bat.v11.bat" class="download-btn">
+                    <i data-lucide="download" class="download-btn-img"></i>
+                    Windows için İndir
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+</main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Hakkımda</h4>
+                <p>f-prj, hobi amaçlı tool üreten bir yazılım ekibidir. Tek sorun şu ki tek kişi :p</p>
+            </div>
+            <div class="footer-section">
+                <h4>İletişim</h4>
+                <p>Github: <a href="https://github.com/frost-ium" style="color: inherit; text-decoration: none;">frostium</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Sosyal Medya</h4>
+                <a href="https://www.youtube.com/@frostium_" class="social-icon"><i data-lucide="youtube"></i></a>
+                <a href="https://www.instagram.com/frostium_/" class="social-icon"><i data-lucide="instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 F-PRJ. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const navbar = document.getElementById('navbar');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > 1000) { 
+                if (currentScrollY > lastScrollY) {
+                    navbar.classList.add('hidden'); // Aşağı kaydırırken gizle
+                } else {
+                    navbar.classList.remove('hidden'); // Yukarı kaydırırken göster
+                }
+            } else {
+                navbar.classList.add('show-always'); // İlk 1000px her zaman görünür
+            }
+
+            if (currentScrollY > 1000) {
+                navbar.classList.remove('show-always'); // 1000px geçince normal davran
+            }
+
+            lastScrollY = currentScrollY;
+        });
+
+        document.querySelector('.scroll-down').addEventListener('click', function() {
+            document.querySelector('#content').scrollIntoView({ 
+                behavior: 'smooth',
+                block:'start'
+            });
+        });
+        document.querySelector('.scroll-downn').addEventListener('click', function() {
+            document.querySelector('#sstt').scrollIntoView({ 
+                behavior: 'smooth',
+                block:'start'
+            });
+        });
+    </script>
+</body>
+</html>
