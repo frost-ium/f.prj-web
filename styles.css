@@ -56,8 +56,11 @@ header {
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.0);
     backdrop-filter: blur(15px);
+}
+
+header:hover{
 }
 
 
@@ -71,7 +74,6 @@ header {
     text-decoration: none;
     transition: all 0.5s ease;
     background-size: 200% 200%;
-    background-image: linear-gradient(45deg, #ffffff, #a81a1a, #46a546, #ff00cc);
     -webkit-background-clip: text;
     background-clip: text;
     animation: gradientAnimation 5s ease infinite;
@@ -94,10 +96,12 @@ header {
 }
 
 .logo:hover, nav a:hover {
-    color: inherit;
+    
+    text-shadow: 0px 0rem 15px rgb(255, 255, 255, 1);
     animation: none;
     -webkit-text-fill-color: inherit;
 }
+
 
 .logo-menu {
     position: absolute;
@@ -179,8 +183,9 @@ nav a::after {
 }
 
 .suggest-btn {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.0);
     color: #fff;
+    backdrop-filter: blur(10px);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     text-decoration: none;
@@ -189,17 +194,6 @@ nav a::after {
     border: 1px solid rgba(255, 255, 255, 0.3);
     position: relative;
     overflow: hidden;
-}
-
-.suggest-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(255, 0, 204, 0.5), rgba(51, 51, 255, 0.5));
-    transition: all 0.5s ease;
 }
 
 .suggest-btn:hover::before {
@@ -267,10 +261,10 @@ main {
 .content {
     padding: 3rem 2rem;
     backdrop-filter: blur(35px);
-    background-color: rgba(19, 19, 19, 0.445);
+    background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    
+    border-color: #00ffd5;
 }
 
 .contentt {
@@ -480,6 +474,7 @@ footer {
     cursor: pointer;
     mix-blend-mode: difference;
     color: white;
+    text-shadow: 0px 0rem 3px rgb(255, 255, 255, 1);
 }
 
 
@@ -505,14 +500,13 @@ footer {
 
 .suggest-btn:hover {
     transform: scale(1.05);
+    background-color:rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
 }
 
 .suggest-btn::before {
     content: none;
 }
-
-
-
 
 
 
@@ -527,7 +521,6 @@ footer {
 }
 
 .frostium:hover {
-    color: #33ff00;
 }
 
 .contentt > h2 {
